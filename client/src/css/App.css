@@ -1,0 +1,28 @@
+* {
+  margin: 10px;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+.landing-container {
+  display: flex;
+  border-bottom: solid rgb(75, 75, 75) 1px;
+}
+.landing-container div {
+  padding: 10px;
+}
+.landing-avatar{
+  flex: 1;
+  text-align:end;
+}
+.landing-text {
+  flex:1;
+  align-self: center;
+  flex-wrap: wrap;
+}
+.avatar {
+  height: 400px;
+  width: 400px;
+  /* border-radius: 100%; */
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
