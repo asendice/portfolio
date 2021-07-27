@@ -1,6 +1,15 @@
+/* 
+colors:
+  dark #2A2C2B
+  grey #494949
+  light #D9CB9E
+  Accent #DC3522
+*/
+
 * {
   padding: 0;
-  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
 }
 .landing-container {
   display: flex;
@@ -8,6 +17,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #494949;
+  color: #fff;
 }
 /* .landing-container div {
 } */
@@ -17,16 +28,41 @@
 .title-icon {
   font-size: 100px;
   font-weight: 100;
+  color: #2a2c2b;
 }
 .landing-subtext {
   align-self: center;
-  font-size: 2rem;
+  font-size: 1.6rem;
+}
+.landing-subtext h2 {
+  font-weight: 800;
 }
 .landing-subtext button {
+  display: inline-flex;
+  align-items: center;
   margin-top: 25px;
   padding: 13px 30px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px;
+  background-color: #2a2c2b;
+  color: #fff;
+  border: rgb(75, 75, 75) solid 1px;
+  width: 172px;
+}
+
+.landing-subtext button:hover {
+  cursor: pointer;
+}
+
+.sun {
+  color: rgb(247, 247, 152);
+  font-size: 2rem;
+  margin-right: 5px;
+}
+.moon {
+  color: rgb(140, 140, 145);
+  font-size: 2rem;
+  margin-right: 5px;
 }
 .avatar {
   height: 300px;
