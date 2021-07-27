@@ -1,22 +1,32 @@
 * {
-  margin: 10px;
   padding: 0;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 .landing-container {
   display: flex;
-  flex: wrap;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.landing-container div {
-  padding: 10px;
+/* .landing-container div {
+} */
+.title-container {
+  text-align: center;
 }
-.landing-avatar {
-  flex: 1;
-  text-align: end;
+.title-icon {
+  font-size: 100px;
+  font-weight: 100;
 }
-.landing-text {
-  flex: 1;
+.landing-subtext {
   align-self: center;
+  font-size: 2rem;
+}
+.landing-subtext button {
+  margin-top: 25px;
+  padding: 13px 30px;
+  text-decoration: none;
+  font-size: 16px;
 }
 .avatar {
   height: 300px;

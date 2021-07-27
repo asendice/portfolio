@@ -1,0 +1,7 @@
+After first portfolio project heading little results --- 1 interview. 
+I've decided to change up my portfolio and go with something more clean, simple, and done well.
+I was ambitious with the parrallax in my last project as there was more down side than upside.
+
+We are going to take inspiration from this layout https://dorota1997.github.io/react-frontend-dev-portfolio/
+We are not going to rip it or go to the github to find out how they did certain things. This layout is basic
+and I am confident I can recreate it with minor personal tweaks.
