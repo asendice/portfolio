@@ -22,7 +22,7 @@ const Landing = () => {
           <VscCode className="title-icon" />
           <div className="landing-subtext">
             <h2>Dylan Travis</h2>
-            <div>Front-End Developer - Mobile App Developer - Leader</div>
+            <div>Front-End Developer</div>
             <button onClick={toggleTheme}>
               {theme === true ? (
                 <FaSun className="sun" />

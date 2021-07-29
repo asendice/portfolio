@@ -27,24 +27,22 @@ const Projects = () => {
   }, []);
 
   const renderProjectCards = () => {
-    return projects.map((proj) =>{
+    return projects.map((proj) => {
       return (
         <div key={proj.id} className="project-card">
-          <img src={proj.images[0]}/>
+          <img src={proj.images[0]} />
           <h1>{proj.name}</h1>
         </div>
-      )
-    })
-  }
+      );
+    });
+  };
 
-  console.log(projects)
+  console.log(projects);
 
   return (
     <div className="projects-container">
-      <div className="section-title"> <h2> My Projects </h2> </div>
-      <div className="projects">
-        {renderProjectCards()}
-      </div>
+      <div className="section-title">PROJECTS</div>
+      <div className="projects">{renderProjectCards()}</div>
     </div>
   );
 };
