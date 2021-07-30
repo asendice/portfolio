@@ -24,7 +24,7 @@ const About = () => {
               <div className="green-dot"></div>
             </div>
             <div className="about-me-text">
-              <h3>Hi, I'm Dylan,</h3>
+              <h2> Hi, I'm Dylan, ☕️</h2>
               <p>
                 Idk what I am going to put here yet. It can't be too long and or wordy.
               </p>
