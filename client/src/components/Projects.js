@@ -4,6 +4,8 @@ import Modal from "react-modal";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const [selectedProject, setSelectedProject] = useState({});
+  const [index, setIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
   const getProjects = async () => {
@@ -28,11 +30,17 @@ const Projects = () => {
     getProjects();
   }, []);
 
+  const onProjectCardClick = (proj) => {
+    setSelectedProject(proj);
+    setModalOpen(!modalOpen);
+    setIndex(0);
+  };
+
   const renderProjectCards = () => {
     return projects.map((proj) => {
       return (
         <div
-          onClick={() => setModalOpen(!modalOpen)}
+          onClick={() => onProjectCardClick(proj)}
           key={proj.id}
           className="project-card"
         >
@@ -51,7 +59,39 @@ const Projects = () => {
         <div className="project-modal">
           <div className="modal-content">
             <button onClick={() => setModalOpen(false)}>X</button>
-            <div></div>
+            <div className="modal-box">
+              <div className="dots">
+                <div className="red-dot"></div>
+                <div className="yellow-dot"></div>
+                <div className="green-dot"></div>
+              </div>
+              <img
+                className="modal-image"
+                src={selectedProject.images[index]}
+              />
+            </div>
+            <button
+              onClick={() =>
+                setIndex(
+                  index < selectedProject.images.length - 1 ? index + 1 : 0
+                )
+              }
+            >
+              {" "}
+              +{" "}
+            </button>
+            <button
+              onClick={() =>
+                setIndex(
+                  index > 0 ? index - 1 : selectedProject.images.length - 1
+                )
+              }
+            >
+              {" "}
+              -{" "}
+            </button>
+            <div>{selectedProject.skills}</div>
+            <div>{selectedProject.description}</div>
           </div>
         </div>
       );
