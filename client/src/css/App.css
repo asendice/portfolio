@@ -261,7 +261,14 @@ colors:
   color: #fff;
   background-color: rgba(0, 0, 0, 0.7);
   transition: ease-in 0.2s;
+}
+
+.close-btn{
   align-self: flex-end;
+}
+
+.image-btn {
+  align-self: center;
 }
 
 .modal-content button:hover {
@@ -273,12 +280,26 @@ colors:
   border: rgb(75, 75, 75) 1px solid;
   background-color: #6d6d6d;
   color: #fff;
-  height: 400px;
-  width: 600px;
+  height: 380px;
+  width: 700px;
   align-self: center;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .modal-image {
-  height: 350px;
+  height: 394px;
   transition: transform 0.5s;
+}
+
+.tech-skills {
+  color: #fff;
+  align-self: center;
+  padding: 10px;
+}
+
+.project-description {
+  align-self: center;
+  padding: 15px;
+  color: #fff;
 }

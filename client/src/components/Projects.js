@@ -58,7 +58,9 @@ const Projects = () => {
       return (
         <div className="project-modal">
           <div className="modal-content">
-            <button onClick={() => setModalOpen(false)}>X</button>
+            <button className="close-btn" onClick={() => setModalOpen(false)}>
+              X
+            </button>
             <div className="modal-box">
               <div className="dots">
                 <div className="red-dot"></div>
@@ -70,28 +72,31 @@ const Projects = () => {
                 src={selectedProject.images[index]}
               />
             </div>
-            <button
-              onClick={() =>
-                setIndex(
-                  index < selectedProject.images.length - 1 ? index + 1 : 0
-                )
-              }
-            >
-              {" "}
-              +{" "}
-            </button>
-            <button
-              onClick={() =>
-                setIndex(
-                  index > 0 ? index - 1 : selectedProject.images.length - 1
-                )
-              }
-            >
-              {" "}
-              -{" "}
-            </button>
-            <div>{selectedProject.skills}</div>
-            <div>{selectedProject.description}</div>
+            <div className="image-btn">
+              <button
+                onClick={() =>
+                  setIndex(
+                    index > 0 ? index - 1 : selectedProject.images.length - 1
+                  )
+                }
+              >
+                {" "}
+                -{" "}
+              </button>
+              <button
+                onClick={() =>
+                  setIndex(
+                    index < selectedProject.images.length - 1 ? index + 1 : 0
+                  )
+                }
+              >
+                {" "}
+                +{" "}
+              </button>
+            </div>
+
+            <div className="tech-skills">{selectedProject.skills}</div>
+            <div className="project-description ">{selectedProject.description}</div>
           </div>
         </div>
       );
