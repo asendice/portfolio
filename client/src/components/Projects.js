@@ -36,6 +36,15 @@ const Projects = () => {
     setIndex(0);
   };
 
+  const dismissModal = (e) => {
+    console.log(e);
+    if (e.target.closest("project-modal")) {
+      setModalOpen(false);
+    } else {
+      return null;
+    }
+  };
+
   const renderProjectCards = () => {
     return projects.map((proj) => {
       return (
@@ -56,12 +65,16 @@ const Projects = () => {
   const renderModal = () => {
     if (modalOpen) {
       return (
-        <div className="project-modal">
+        <div
+          id="project-modal"
+          onClick={(e) => dismissModal(e)}
+          className="project-modal"
+        >
           <div className="modal-content">
             <button className="close-btn" onClick={() => setModalOpen(false)}>
               X
             </button>
-            <div className="modal-box">
+            <div onClick={() => console.log("click")} className="modal-box">
               <div className="dots">
                 <div className="red-dot"></div>
                 <div className="yellow-dot"></div>
@@ -96,7 +109,9 @@ const Projects = () => {
             </div>
 
             <div className="tech-skills">{selectedProject.skills}</div>
-            <div className="project-description ">{selectedProject.description}</div>
+            <div className="project-description ">
+              {selectedProject.description}
+            </div>
           </div>
         </div>
       );
