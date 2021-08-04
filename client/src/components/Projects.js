@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import backendApi from "../apis/backendApi";
-import Modal from "react-modal";
+import { FaAngleRight } from "react-icons/fa";
+import { FaAngleLeft } from "react-icons/fa";
+import Slider from "react-animated-slider";
+import "react-animated-slider/build/horizontal.css";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -30,6 +33,11 @@ const Projects = () => {
     getProjects();
   }, []);
 
+  useEffect(() => {
+    const body = document.querySelector("body");
+    body.style.overflow = modalOpen ? "hidden" : "auto";
+  }, [modalOpen]);
+
   const onProjectCardClick = (proj) => {
     setSelectedProject(proj);
     setModalOpen(!modalOpen);
@@ -37,8 +45,7 @@ const Projects = () => {
   };
 
   const dismissModal = (e) => {
-    console.log(e);
-    if (e.target.closest("project-modal")) {
+    if (e.target.id === "project-modal") {
       setModalOpen(false);
     } else {
       return null;
@@ -55,8 +62,6 @@ const Projects = () => {
         >
           <img src={proj.images[0]} />
           <h3>{proj.name}</h3>
-          <button>Github</button>
-          <button>Live Demo</button>
         </div>
       );
     });
@@ -71,19 +76,26 @@ const Projects = () => {
           className="project-modal"
         >
           <div className="modal-content">
+            {selectedProject.name}
             <button className="close-btn" onClick={() => setModalOpen(false)}>
               X
             </button>
+            <div className="modal-btns">
+              <div className="ghub-btn"> Github </div>
+              <div className="demo-btn">Live Demo</div>
+            </div>
             <div onClick={() => console.log("click")} className="modal-box">
               <div className="dots">
                 <div className="red-dot"></div>
                 <div className="yellow-dot"></div>
                 <div className="green-dot"></div>
               </div>
-              <img
-                className="modal-image"
-                src={selectedProject.images[index]}
-              />
+
+                <img
+                  className="modal-image"
+                  src={selectedProject.images[index]}
+                />
+
             </div>
             <div className="image-btn">
               <button
@@ -94,8 +106,9 @@ const Projects = () => {
                 }
               >
                 {" "}
-                -{" "}
+                <FaAngleLeft />{" "}
               </button>
+              <span>{index + 1 + " / " + selectedProject.images.length}</span>
               <button
                 onClick={() =>
                   setIndex(
@@ -104,10 +117,9 @@ const Projects = () => {
                 }
               >
                 {" "}
-                +{" "}
+                <FaAngleRight />{" "}
               </button>
             </div>
-
             <div className="tech-skills">{selectedProject.skills}</div>
             <div className="project-description ">
               {selectedProject.description}
@@ -120,10 +132,11 @@ const Projects = () => {
     }
   };
 
-  console.log(projects);
-
   return (
-    <div className="projects">
+    <div
+      className="projects"
+      style={{ overflow: modalOpen ? "hidden" : "visible" }}
+    >
       <div className="section-title">PROJECTS</div>
       <div className="projects-container">{renderProjectCards()}</div>
       {renderModal()}
