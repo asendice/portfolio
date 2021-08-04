@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Landing from "./components/Landing";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Tech from "./components/Tech";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <About />
       <Projects />
       <Tech />
+      <Contact />
     </div>
   );
 };

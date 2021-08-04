@@ -388,3 +388,47 @@
   margin-top: 5px;
   font-size: 10px;
 }
+
+.contact {
+  background-color: #151515;
+  min-height: 200px;
+  border: #1f1f1f solid 1px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
+  flex-wrap: wrap;
+}
+
+.contact-icon {
+  display: flex;
+
+  margin: 10px;
+}
+
+.contact-icon a {
+  font-size: 2.2rem;
+  color: #fff;
+}
+
+.email {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.email:hover {
+  text-decoration: underline 1px #fff;
+}
+
+.copyright {
+  display:flex;
+  justify-content: center;
+  color: #fff;
+  font-size: .7rem;
+}
