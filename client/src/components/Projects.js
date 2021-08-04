@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import backendApi from "../apis/backendApi";
-import { FaAngleRight } from "react-icons/fa";
-import { FaAngleLeft } from "react-icons/fa";
-import Slider from "react-animated-slider";
-import "react-animated-slider/build/horizontal.css";
+import AwesomeSlider from "react-awesome-slider";
+import "react-awesome-slider/dist/styles.css";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState({});
-  const [index, setIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
   const getProjects = async () => {
@@ -41,7 +38,6 @@ const Projects = () => {
   const onProjectCardClick = (proj) => {
     setSelectedProject(proj);
     setModalOpen(!modalOpen);
-    setIndex(0);
   };
 
   const dismissModal = (e) => {
@@ -50,6 +46,17 @@ const Projects = () => {
     } else {
       return null;
     }
+  };
+
+  const imageSlider = () => {
+    return (
+      <AwesomeSlider>
+        {selectedProject.images.map((img) => {
+          console.log(img);
+          return <div data-src={img} className="modal-image"></div>;
+        })}
+      </AwesomeSlider>
+    );
   };
 
   const renderProjectCards = () => {
@@ -76,13 +83,33 @@ const Projects = () => {
           className="project-modal"
         >
           <div className="modal-content">
-            {selectedProject.name}
-            <button className="close-btn" onClick={() => setModalOpen(false)}>
-              X
-            </button>
+            <div className="modal-header">
+              <h1>{selectedProject.name}</h1>
+              <button className="close-btn" onClick={() => setModalOpen(false)}>
+                X
+              </button>
+            </div>
+
             <div className="modal-btns">
-              <div className="ghub-btn"> Github </div>
-              <div className="demo-btn">Live Demo</div>
+              <a
+                href={selectedProject.gitHub}
+                rel="noopener noreferrer"
+                target="_blank"
+                className="ghub-btn"
+              >
+                {" "}
+                Github{" "}
+              </a>
+              {selectedProject.live !== "none" ? (
+                <a
+                  href={selectedProject.live}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="demo-btn"
+                >
+                  Live Demo
+                </a>
+              ) : null}
             </div>
             <div onClick={() => console.log("click")} className="modal-box">
               <div className="dots">
@@ -90,37 +117,14 @@ const Projects = () => {
                 <div className="yellow-dot"></div>
                 <div className="green-dot"></div>
               </div>
-
-                <img
-                  className="modal-image"
-                  src={selectedProject.images[index]}
-                />
-
+              {imageSlider()}
             </div>
-            <div className="image-btn">
-              <button
-                onClick={() =>
-                  setIndex(
-                    index > 0 ? index - 1 : selectedProject.images.length - 1
-                  )
-                }
-              >
-                {" "}
-                <FaAngleLeft />{" "}
-              </button>
-              <span>{index + 1 + " / " + selectedProject.images.length}</span>
-              <button
-                onClick={() =>
-                  setIndex(
-                    index < selectedProject.images.length - 1 ? index + 1 : 0
-                  )
-                }
-              >
-                {" "}
-                <FaAngleRight />{" "}
-              </button>
+
+            <div className="tech-skills">
+              {selectedProject.skills.map((skill) => {
+                return <div>{skill}</div>;
+              })}
             </div>
-            <div className="tech-skills">{selectedProject.skills}</div>
             <div className="project-description ">
               {selectedProject.description}
             </div>
